@@ -1,0 +1,11 @@
+/node_modules
+/build
+
+.DS_Store
+*.log
+.idea
+.vscode
+.eslintcache
+
+.env.*
+*.env
