@@ -24,9 +24,9 @@ type Props = {
 }
 
 export const PieContainer: FunctionComponent<Props> = ({ id, name, series }) => {
-  let chartData = { ...pieConfig, series: series };
+  let chartData = { ...pieConfig(), series: series };
   chartData.title.text= name;
   return (
-    <Zingchart id={id} data={{ ...pieConfig, series: series }} />
+    <Zingchart id={id} key={id} data={chartData} />
   );
 }

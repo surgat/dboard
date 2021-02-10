@@ -100,6 +100,114 @@ export default function VOLSChartView({
       .attr("fill", "#fff")
       .style("font-size", areaNameTextSize)
 
+    var statuses = svg.append("g")
+
+    let areas = statuses.selectAll('.area-text');
+
+    // добавляем статусы AG
+    areas
+      .data(pointCoordArr)
+      .enter()
+      .append("circle")
+      // .attr("class", "area-text")
+      .attr("cx", (d: IPointCoord) => pointCoord.get(d.name).x + blockWidth - 10)
+      .attr("cy", (d: IPointCoord) => pointCoord.get(d.name).y + 10)
+      .attr("r", 6)
+      .style("fill", '#68e156')
+
+    areas
+      .data(pointCoordArr)
+      .enter()
+      .append("text")
+      .attr("x", (d: IPointCoord) => pointCoord.get(d.name).x + blockWidth - 28)
+      .attr("y", (d: IPointCoord) => pointCoord.get(d.name).y + 14)
+      .text('AG')
+      .attr("text-anchor", "middle")
+      .attr("alignment-baseline", "central")
+      .attr("fill", "#fff")
+      .style("font-size", (blockWidth / 20) + "px");
+
+
+    // добавляем статусы AC
+    areas
+      .data(pointCoordArr)
+      .enter()
+      .append("circle")
+      // .attr("class", "area-text")
+      .attr("cx", (d: IPointCoord) => pointCoord.get(d.name).x + blockWidth - 10)
+      .attr("cy", (d: IPointCoord) => pointCoord.get(d.name).y + 30)
+      .attr("r", 6)
+      .style("fill", '#68e156')
+
+    areas
+      .data(pointCoordArr)
+      .enter()
+      .append("text")
+      .attr("x", (d: IPointCoord) => pointCoord.get(d.name).x + blockWidth - 28)
+      .attr("y", (d: IPointCoord) => pointCoord.get(d.name).y + 34)
+      .text('AC')
+      .attr("text-anchor", "middle")
+      .attr("alignment-baseline", "central")
+      .attr("fill", "#fff")
+      .style("font-size", (blockWidth / 20) + "px");
+
+
+    // добавляем статусы SS
+    areas
+      .data(pointCoordArr)
+      .enter()
+      .append("circle")
+      // .attr("class", "area-text")
+      .attr("cx", (d: IPointCoord) => pointCoord.get(d.name).x + blockWidth - 10)
+      .attr("cy", (d: IPointCoord) => pointCoord.get(d.name).y + 50)
+      .attr("r", 6)
+      .style("fill", '#68e156')
+
+    areas
+      .data(pointCoordArr)
+      .enter()
+      .append("text")
+      .attr("x", (d: IPointCoord) => pointCoord.get(d.name).x + blockWidth - 28)
+      .attr("y", (d: IPointCoord) => pointCoord.get(d.name).y + 54)
+      .text('AG')
+      .attr("text-anchor", "middle")
+      .attr("alignment-baseline", "central")
+      .attr("fill", "#fff")
+      .style("font-size", (blockWidth / 20) + "px");
+
+    // добавляем статусы SS
+    areas
+    .data(pointCoordArr)
+    .enter()
+    .append("circle")
+    // .attr("class", "area-text")
+    .attr("cx", (d: IPointCoord) => pointCoord.get(d.name).x + blockWidth - 10)
+    .attr("cy", (d: IPointCoord) => pointCoord.get(d.name).y + 70)
+    .attr("r", 6)
+    .style("fill", '#68e156')
+
+  areas
+    .data(pointCoordArr)
+    .enter()
+    .append("text")
+    .attr("x", (d: IPointCoord) => pointCoord.get(d.name).x + blockWidth - 28)
+    .attr("y", (d: IPointCoord) => pointCoord.get(d.name).y + 74)
+    .text('CR')
+    .attr("text-anchor", "middle")
+    .attr("alignment-baseline", "central")
+    .attr("fill", "#fff")
+    .style("font-size", (blockWidth / 20) + "px");
+
+      // line.selectAll(`.arrow-circle_scolcovo-${to}`) // key: south (scolcovo -> south)
+      // .data(data['scolcovo'].data[to]) // [{ name: "A4", status: 0 }]
+      // .enter()
+      // .append("circle")
+      // .attr("class", `arrow-circle_scolcovo-${to}`)
+      // .attr("cx", xEndArrow('scolcovo', to))
+      // .attr("cy", (_, i: number) => yEndArrow('scolcovo', to, i))
+      // .attr("r", 24)
+      // .style("fill", '#000');
+
     // arrow-triangle
     svg.append("svg:defs")
       .selectAll('.arrow-triangle')
@@ -621,7 +729,7 @@ export default function VOLSChartView({
 
   return (
     <svg
-      style={{ 'background-color': VOLS_BACKGROUND_COLOR } as CSSProperties}
+      style={{ backgroundColor: VOLS_BACKGROUND_COLOR } as CSSProperties}
       width={width}
       height={height}
       ref={d3Container}

@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 // import moment from 'moment';
 
-import Legend from '../../../legend/legend';
+import Legend from '../../legend/legend';
 import ChartView from './chart-view';
 import { VOLS, VOLSPoint, VOLSLineStatus } from '../type';
 import { ARROW_COLORS } from '../constants';
@@ -11,7 +11,7 @@ import './chart-container.scss';
 
 const height = 400;
 
-export default function VOLSChartContainer() {
+export function VOLSChartContainer() {
   const [data, setData] = useState<{ [key in VOLS]?: VOLSPoint }>({});
   const [width, setWidth] = useState<number>(700);
 
@@ -27,11 +27,17 @@ export default function VOLSChartContainer() {
       setData({
         'scolcovo': {
           name: 'Сколково',
+          status: VOLSLineStatus.ok,
+          roleStatus: {
+            ag: VOLSLineStatus.ok,
+            ac: VOLSLineStatus.ok,
+            ss: VOLSLineStatus.ok
+          },
           data: {
             'm10': [
               {
                 name: 'A4',
-                status: VOLSLineStatus.ok,
+                status: VOLSLineStatus.ng,
               }
             ],
             'm9': [

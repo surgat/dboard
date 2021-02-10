@@ -50,6 +50,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'InventoryDB',
       template: './src/index.html',
+      favicon: './src/favicon.ico'
     }),
     // new MiniCssExtractPlugin(),
     // new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /ru|en/),

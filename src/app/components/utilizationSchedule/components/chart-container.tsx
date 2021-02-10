@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 import TopGraph from './top-graph';
 import BottomGraph from './bottom-graph';
-import Legend from '../../../legend/legend';
+import Legend from '../../legend/legend';
 import { UtilizationSchedule } from '../type';
 import { ARROW_COLORS } from '../constants';
 
@@ -11,7 +11,7 @@ import './chart-container.scss';
 
 const height = 100;
 
-export default function UtilizationScheduleChart() {
+export function UtilizationScheduleChart() {
   const [data, setData] = useState<UtilizationSchedule>({top: [], bottom:[]});
   const [width, setWidth] = useState<number>(700);
 

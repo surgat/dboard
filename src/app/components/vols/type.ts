@@ -14,6 +14,8 @@ export interface VOLSLine {
 
 export interface VOLSPoint {
   name: string;
+  status?: any;
+  roleStatus?: any;
   data: {[key in VOLS]?: VOLSLine[]};
 }
 

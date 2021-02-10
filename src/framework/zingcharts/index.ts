@@ -6,3 +6,4 @@ export interface Series {
 
 export { pieConfig } from './pieserie'
 export { timeseriesConfig } from './timeseries'
+export { stackedareaConfig } from './stackedarea'

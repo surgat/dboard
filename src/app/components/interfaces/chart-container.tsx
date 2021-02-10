@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { TimeseriesContainer } from '@framework/react/zingcharts/timeseries-container'
+import { StackedareaContainer } from '@framework/react/zingcharts/stackedarea-container'
 import { Series } from '@framework/zingcharts';
 
 interface ChartContainer {
@@ -87,23 +87,26 @@ export default function ChartContainer() {
     return series;
   }
 
-  const chartConfig1 = createChartData(
-    'legacy',
-    data.legacyAllInterfaceCountList,
-    data.legacyLineStateUpCountList,
-    data.scaleXList
-  );
-  const chartConfig2 = createChartData(
-    'CLOS',
-    data.closAllInterfaceCountList,
-    data.closLineStateUpCountList,
-    data.scaleXList
-  );
+  // const chartConfig1 = createChartData(
+  //   'legacy',
+  //   data.legacyAllInterfaceCountList,
+  //   data.legacyLineStateUpCountList,
+  //   data.scaleXList
+  // );
+  // const chartConfig2 = createChartData(
+  //   'CLOS',
+  //   data.closAllInterfaceCountList,
+  //   data.closLineStateUpCountList,
+  //   data.scaleXList
+  // );
 
   return (
     <>
-      <TimeseriesContainer id="newChartLegacy" name="legacy" series={chartConfig1} />
-      <TimeseriesContainer id="newChartClos" name="CLOS" series={chartConfig2} />
+      <StackedareaContainer id="Interfaces" name="Интерфейсы" series={[
+        {text: "legacy up", values: [10,8,2,0]},
+        {text: "CLOS up", values: [10,20,30,100]},
+        {text: "CLOS free", values: [100,190,250,200]}
+      ]} />
     </>
   );
 }
