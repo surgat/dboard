@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'antd/lib/grid';
-import ChartContainer from '@dboard/app/components/interfaces/chart-container';
+// import ChartContainer from '@dboard/app/components/interfaces/chart-container';
 import { PieContainer } from '@dboard/framework/react/zingcharts/pie-component';
 import { DeviceTable } from '../components/device-table';
 import Statistic from 'antd/lib/statistic';
@@ -11,13 +11,16 @@ import { StackedareaContainer } from '@dboard/framework/react/zingcharts/stacked
 
 export const UsCODPage = () => (
     <>
-        <Row>
+        <Row justify="space-around" align="middle">
             <Col xs={24} lg={16}>
-                <StackedareaContainer id="Interfaces" name="Утилизация портов доступа" series={[
-                    { text: "legacy up", values: [10, 8, 2, 0], lineColor: "red", backgroundColor: "red", marker: { backgroundColor: "red" } },
-                    { text: "CLOS up", values: [40000, 41500, 41000, 42000], lineColor: "green", backgroundColor: "green", marker: { backgroundColor: "green" } },
-                    { text: "CLOS free", values: [41000, 45000, 50000, 54000], lineColor: "gray", backgroundColor: "gray", marker: { backgroundColor: "gray" } },
-                ]} />
+                <StackedareaContainer data={{
+                    xValues: ["2020.10", "2020.11", "2020.12", "2021.01"],
+                    series: [
+                        { text: "legacy up", values: [10, 8, 2, 0], color: "red" },
+                        { text: "CLOS up", values: [40000, 41500, 41000, 42000], color: "green" },
+                        { text: "CLOS free", values: [41000, 45000, 50000, 54000], color: "gray" },
+                    ]
+                }} />
             </Col>
             <Col xs={24} lg={8}>
                 <Title level={4}>Скорость портов</Title>
@@ -46,7 +49,7 @@ export const UsCODPage = () => (
             </Col>
         </Row>
         <Row gutter={18}>
-            <Col span={8}>
+            <Col xs={24} lg={8}>
                 <Title level={4}>Статистика</Title>
                 <Card size="small">
                     <Row>
@@ -85,7 +88,7 @@ export const UsCODPage = () => (
                     </Row>
                 </Card>
             </Col>
-            <Col span={8}>
+            <Col xs={24} lg={8}>
                 <DeviceTable data={[
                     { role: 'SS', prom: 88, stock: 117 },
                     { role: 'BG', prom: 12, stock: 169 },

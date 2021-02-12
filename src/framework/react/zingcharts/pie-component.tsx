@@ -31,7 +31,7 @@ type Props = {
 
 export const PieContainer: FunctionComponent<Props> = ({ id, name, series }) => {
 
-  const data = series.map((el) => ({ type: el.text, value: el.value }))
+  const data = series.map((el) => ({ type: el.text, value: el.value }));
 
   const config = {
     // appendPadding: 10,
@@ -42,7 +42,7 @@ export const PieContainer: FunctionComponent<Props> = ({ id, name, series }) => 
     label: {
       type: 'outer',
       // type: 'inner',
-      content: '{name} {percentage}',
+      content: '{percentage}',
     },
     // content: ({ percent }) => `${(percent * 100).toFixed(0)}%`,
     interactions: [{ type: 'pie-legend-active' }, { type: 'element-active' }],

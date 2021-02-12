@@ -31,7 +31,7 @@ export default () => (
             <LocalizationButton />
           </div>
         </Header>
-        <Content>
+        <Content style={{ padding: '0 15px' }}>
           <Switch>
             <Route exact path="/cod">
               <UsCODPage />
