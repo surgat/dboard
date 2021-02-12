@@ -1,4 +1,6 @@
+import { Header } from "antd/lib/layout/layout";
 import Table from "antd/lib/table";
+import Title from "antd/lib/typography/Title";
 import React, { FunctionComponent } from "react";
 
 const columns = [
@@ -9,12 +11,12 @@ const columns = [
     render: text => <a>{text}</a>,
   },
   {
-    title: 'В проме',
+    title: 'ПРОМ',
     dataIndex: 'prom',
     key: 'prom',
   },
   {
-    title: 'ЗИП',
+    title: 'На складе',
     dataIndex: 'stock',
     key: 'stock',
   },
@@ -27,8 +29,8 @@ type Props = {
 export const DeviceTable: FunctionComponent<Props> = ({ data }) => {
   return (
     <div>
-      <h2>Устройств</h2>
-      <Table rowKey="role" columns={columns} dataSource={data} pagination={false} />
+      <Title level={4}>Количество устройств</Title>
+      <Table rowKey="role" columns={columns} dataSource={data} pagination={false} size="small" />
     </div>
   );
 }

@@ -28,6 +28,7 @@
     }
   },
   "dependencies": {
+    "@ant-design/charts": "^1.0.17",
     "antd": "^4.12",
     "d3": "*",
     "file-loader": "^6.2.0",

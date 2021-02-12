@@ -85,6 +85,9 @@ export default function VOLSChartView({
       .attr('height', blockHeight)
       .attr('x', (d: IPointCoord) => pointCoord.get(d.name).x)
       .attr('y', (d: IPointCoord) => pointCoord.get(d.name).y)
+      .on('click', function (event, d) {
+        window.location.hash = d.name;
+      })
 
     // добавляем название зоны
     svg.selectAll('.area-text')
@@ -152,6 +155,29 @@ export default function VOLSChartView({
       .style("font-size", (blockWidth / 20) + "px");
 
 
+    // // добавляем статусы SS
+    // areas
+    //   .data(pointCoordArr)
+    //   .enter()
+    //   .append("circle")
+    //   // .attr("class", "area-text")
+    //   .attr("cx", (d: IPointCoord) => pointCoord.get(d.name).x + blockWidth - 10)
+    //   .attr("cy", (d: IPointCoord) => pointCoord.get(d.name).y + 50)
+    //   .attr("r", 6)
+    //   .style("fill", '#68e156')
+
+    // areas
+    //   .data(pointCoordArr)
+    //   .enter()
+    //   .append("text")
+    //   .attr("x", (d: IPointCoord) => pointCoord.get(d.name).x + blockWidth - 28)
+    //   .attr("y", (d: IPointCoord) => pointCoord.get(d.name).y + 54)
+    //   .text('AG')
+    //   .attr("text-anchor", "middle")
+    //   .attr("alignment-baseline", "central")
+    //   .attr("fill", "#fff")
+    //   .style("font-size", (blockWidth / 20) + "px");
+
     // добавляем статусы SS
     areas
       .data(pointCoordArr)
@@ -159,7 +185,7 @@ export default function VOLSChartView({
       .append("circle")
       // .attr("class", "area-text")
       .attr("cx", (d: IPointCoord) => pointCoord.get(d.name).x + blockWidth - 10)
-      .attr("cy", (d: IPointCoord) => pointCoord.get(d.name).y + 50)
+      .attr("cy", (d: IPointCoord) => pointCoord.get(d.name).y + 70)
       .attr("r", 6)
       .style("fill", '#68e156')
 
@@ -168,45 +194,22 @@ export default function VOLSChartView({
       .enter()
       .append("text")
       .attr("x", (d: IPointCoord) => pointCoord.get(d.name).x + blockWidth - 28)
-      .attr("y", (d: IPointCoord) => pointCoord.get(d.name).y + 54)
-      .text('AG')
+      .attr("y", (d: IPointCoord) => pointCoord.get(d.name).y + 74)
+      .text('CR')
       .attr("text-anchor", "middle")
       .attr("alignment-baseline", "central")
       .attr("fill", "#fff")
       .style("font-size", (blockWidth / 20) + "px");
 
-    // добавляем статусы SS
-    areas
-    .data(pointCoordArr)
-    .enter()
-    .append("circle")
-    // .attr("class", "area-text")
-    .attr("cx", (d: IPointCoord) => pointCoord.get(d.name).x + blockWidth - 10)
-    .attr("cy", (d: IPointCoord) => pointCoord.get(d.name).y + 70)
-    .attr("r", 6)
-    .style("fill", '#68e156')
-
-  areas
-    .data(pointCoordArr)
-    .enter()
-    .append("text")
-    .attr("x", (d: IPointCoord) => pointCoord.get(d.name).x + blockWidth - 28)
-    .attr("y", (d: IPointCoord) => pointCoord.get(d.name).y + 74)
-    .text('CR')
-    .attr("text-anchor", "middle")
-    .attr("alignment-baseline", "central")
-    .attr("fill", "#fff")
-    .style("font-size", (blockWidth / 20) + "px");
-
-      // line.selectAll(`.arrow-circle_scolcovo-${to}`) // key: south (scolcovo -> south)
-      // .data(data['scolcovo'].data[to]) // [{ name: "A4", status: 0 }]
-      // .enter()
-      // .append("circle")
-      // .attr("class", `arrow-circle_scolcovo-${to}`)
-      // .attr("cx", xEndArrow('scolcovo', to))
-      // .attr("cy", (_, i: number) => yEndArrow('scolcovo', to, i))
-      // .attr("r", 24)
-      // .style("fill", '#000');
+    // line.selectAll(`.arrow-circle_scolcovo-${to}`) // key: south (scolcovo -> south)
+    // .data(data['scolcovo'].data[to]) // [{ name: "A4", status: 0 }]
+    // .enter()
+    // .append("circle")
+    // .attr("class", `arrow-circle_scolcovo-${to}`)
+    // .attr("cx", xEndArrow('scolcovo', to))
+    // .attr("cy", (_, i: number) => yEndArrow('scolcovo', to, i))
+    // .attr("r", 24)
+    // .style("fill", '#000');
 
     // arrow-triangle
     svg.append("svg:defs")
@@ -284,7 +287,7 @@ export default function VOLSChartView({
           return y as number;
         }
 
-        function xEndArrow(from: string, to: string, ) {
+        function xEndArrow(from: string, to: string,) {
           let x = 0;
           if (from === 'scolcovo' && to === 'south') {
             x = pointCoord.get(from).x + blockWidth * 1.5;
@@ -360,7 +363,7 @@ export default function VOLSChartView({
           return y as number;
         }
 
-        function xEndArrow(from: string, to: string, ) {
+        function xEndArrow(from: string, to: string,) {
           let x = 0;
           if (from === 'm10' && to === 'scolcovo') {
             x = pointCoord.get(from).x;
@@ -437,7 +440,7 @@ export default function VOLSChartView({
           return y as number;
         }
 
-        function xEndArrow(from: string, to: string, ) {
+        function xEndArrow(from: string, to: string,) {
           let x = 0;
           if (from === 'm9' && to === 'scolcovo') {
             x = pointCoord.get(from).x;

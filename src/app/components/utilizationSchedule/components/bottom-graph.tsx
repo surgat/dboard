@@ -14,14 +14,14 @@ import './bottom-graph.scss';
 
 const cloud = require('../../../assets/cloud.png');
 
-function setArrowColor(numbers?: number[]){
+function setArrowColor(numbers?: number[]) {
   if (!numbers || !numbers.length) {
     return "#fff";
   }
   const part = numbers[0] / numbers[1];
   if (part <= ARROW_COLOR_TRIGGER[0]) {
     return ARROW_COLORS[0].color;
-  } else if (part <= ARROW_COLOR_TRIGGER[1]){
+  } else if (part <= ARROW_COLOR_TRIGGER[1]) {
     return ARROW_COLORS[1].color;
   } else {
     return ARROW_COLORS[2].color;
@@ -223,7 +223,7 @@ export default function TopGraph({
 
   return (
     <svg
-      style={{ 'background-color': UTILIZATION_SCHEDULE_BACKGROUND_COLOR } as CSSProperties}
+      style={{ backgroundColor: UTILIZATION_SCHEDULE_BACKGROUND_COLOR } as CSSProperties}
       width={width}
       height={height}
       ref={d3Container}

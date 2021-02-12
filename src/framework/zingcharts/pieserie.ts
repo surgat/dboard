@@ -1,17 +1,17 @@
 export function pieConfig() {
     return {
         type: 'pie',
-        title: {
-            text: `pie`,
-            adjustLayout: true,
-            marginTop: '7px',
-        },
-        subtitle: {
-            text: `Updated: `,
-            align: 'right',
-            offsetX: '0px',
-            offsetY: '40px'
-        },
+        // title: {
+        //     text: `pie`,
+        //     // adjustLayout: true,
+        //     // marginTop: '7px',
+        // },
+        // subtitle: {
+        //     text: `Updated: `,
+        //     align: 'right',
+        //     offsetX: '0px',
+        //     offsetY: '40px'
+        // },
         plot: {
             tooltip: {
                 text: '%v',
@@ -31,8 +31,8 @@ export function pieConfig() {
             },
             borderWidth: '5px'
         },
-        plotarea: {
-            margin: '0 10 0 0'
-        },
+        // plotarea: {
+        //     margin: '0 10 0 0'
+        // },
     };
 }

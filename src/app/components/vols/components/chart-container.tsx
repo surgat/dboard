@@ -6,8 +6,10 @@ import Legend from '../../legend/legend';
 import ChartView from './chart-view';
 import { VOLS, VOLSPoint, VOLSLineStatus } from '../type';
 import { ARROW_COLORS } from '../constants';
+import { useHistory, useLocation } from 'react-router-dom';
 
 import './chart-container.scss';
+import Modal from 'antd/lib/modal';
 
 const height = 400;
 
@@ -16,6 +18,26 @@ export function VOLSChartContainer() {
   const [width, setWidth] = useState<number>(700);
 
   const ref = useRef<HTMLDivElement>(null);
+  const location = useLocation();
+  const history = useHistory();
+  const isModalVisible = !!location.hash;
+
+  // const [isModalVisible, setIsModalVisible] = useState(false);
+
+  // const showModal = () => {
+  //   setIsModalVisible(true);
+  // };
+  // const handleOk = () => {
+  //   location.hash = '';
+  //   // setIsModalVisible(false);
+  // };
+
+  const handleCancel = () => {
+    // history.location.hash = '';
+    // location.hash = '';
+    history.push({ ...location, hash: '' });
+    // setIsModalVisible(false);
+  };
 
   useEffect(() => {
     fetchData();
@@ -258,6 +280,12 @@ export function VOLSChartContainer() {
       <p className="VOLSChart__title">FOCL topology</p>
       <Legend data={ARROW_COLORS} />
       <ChartView data={data} width={width} height={height} />
+      <Modal title="Утилизация ЦОД" visible={isModalVisible} footer={null} onCancel={handleCancel} onOk={handleCancel}>
+        <p>Статистика утилизации AC CPU/Трафик 95 и 99 прецентиль</p>
+        <p>Статистика утилизации AG CPU/Трафик 95 и 99 прецентиль</p>
+        <p>Статистика утилизации CR CPU/Трафик 95 и 99 прецентиль</p>
+        {/* <p>Some contents...</p> */}
+      </Modal>
     </div>
   );
 }

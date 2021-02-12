@@ -8,37 +8,18 @@ type Props = {
   series: Series[];
 }
 
-export const StackedareaContainer: FunctionComponent<Props> = ({id, name, series}) => {
+export const StackedareaContainer: FunctionComponent<Props> = ({ id, name, series }) => {
 
-    let chartData = {
-      ...stackedareaConfig(),
-      series: series
-    };
+  let chartData = {
+    ...stackedareaConfig(),
+    series: series
+  };
 
-    chartData.title.text = name;
-
-    // if (name === 'legacy') {
-    //   return {
-    //     ...chartData,
-    //     scaleY: {
-    //       ...chartData.scaleY,
-    //       minorTick: {
-    //         lineColor: '#E3E3E5'
-    //       },
-    //       minorTicks: 1,
-    //       tick: {
-    //         lineColor: '#E3E3E5'
-    //       },
-    //       ticks: 1,
-    //     }
-    //   }
-    // }
-
-    
+  chartData.title.text = name;
 
   return (
     <>
       <Zingchart id={id} data={chartData} />
-      </>
+    </>
   );
 }

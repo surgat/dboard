@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import Zingchart from './react-component';
-import { timeseriesConfig, Series } from '@framework/zingcharts';
+import { gaugeConfig, Series } from '../../zingcharts';
 
 type Props = {
   id: string;
@@ -8,10 +8,10 @@ type Props = {
   series: Series[];
 }
 
-export const TimeseriesContainer: FunctionComponent<Props> = ({ id, name, series }) => {
+export const GaugeContainer: FunctionComponent<Props> = ({ id, name, series }) => {
 
   let chartData = {
-    ...timeseriesConfig(),
+    ...gaugeConfig(),
     series: series
   };
 

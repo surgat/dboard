@@ -12,11 +12,11 @@ interface ChartContainer {
 }
 
 let initialData: ChartContainer = {
-  legacyAllInterfaceCountList: [1,2,3],
-  legacyLineStateUpCountList: [3,2,1],
-  closAllInterfaceCountList: [1,2,3],
-  closLineStateUpCountList: [3,2,1],
-  scaleXList: [1,2,3],
+  legacyAllInterfaceCountList: [1, 2, 3],
+  legacyLineStateUpCountList: [3, 2, 1],
+  closAllInterfaceCountList: [1, 2, 3],
+  closLineStateUpCountList: [3, 2, 1],
+  scaleXList: [1, 2, 3],
 }
 
 export default function ChartContainer() {
@@ -103,9 +103,9 @@ export default function ChartContainer() {
   return (
     <>
       <StackedareaContainer id="Interfaces" name="Интерфейсы" series={[
-        {text: "legacy up", values: [10,8,2,0]},
-        {text: "CLOS up", values: [10,20,30,100]},
-        {text: "CLOS free", values: [100,190,250,200]}
+        { text: "legacy up", values: [10, 8, 2, 0], lineColor: "red", backgroundColor: "red", marker: { backgroundColor: "red" } },
+        { text: "CLOS up", values: [70, 160, 200, 280], lineColor: "green", backgroundColor: "green", marker: { backgroundColor: "green" } },
+        { text: "CLOS free", values: [100, 40, 50, 50], lineColor: "gray", backgroundColor: "gray", marker: { backgroundColor: "gray" } },
       ]} />
     </>
   );

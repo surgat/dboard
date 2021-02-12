@@ -15,11 +15,6 @@ const columns = [
     key: 'level',
   },
   {
-    title: 'Статус',
-    dataIndex: 'state',
-    key: 'state',
-  },
-  {
     title: 'Назначено',
     dataIndex: 'assigment',
     key: 'assigment',
@@ -40,10 +35,10 @@ type Props = {
   data: any[]
 };
 
-export const IncidentTable: FunctionComponent<Props> = ({ data }) => {
+export const ClosedIncidentTable: FunctionComponent<Props> = ({ data }) => {
   return (
     <div>
-      <Title level={4}>Активные инциденты</Title>
+      <Title level={4}>Недавно закрытые инциденты</Title>
       <Table rowKey="id" columns={columns} dataSource={data} pagination={false} size="small" />
     </div>
   );
