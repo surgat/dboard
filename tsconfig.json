@@ -37,8 +37,8 @@
     "moduleResolution": "node" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */,
     "baseUrl": "src" /* Base directory to resolve non-absolute module names. */,
     "paths": {
-      "@app/*": ["app/*"],
-      "@framework/*": ["framework/*"],
+      "@dboard/app/*": ["app/*"],
+      "@dboard/framework/*": ["framework/*"],
     },                           /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
     "rootDirs": [
       "src"
@@ -60,7 +60,7 @@
     "forceConsistentCasingInFileNames": true,
     "suppressImplicitAnyIndexErrors": true
   },
-  "files": ["src/index.tsx"],
+  // "files": ["src/index.tsx"],
   "include": [
     "src"
   ]

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import Zingchart from './react-component';
-import { stackedareaConfig, Series } from '@framework/zingcharts';
+import { stackedareaConfig, Series } from '@dboard/framework/zingcharts';
 
 type Props = {
   id: string;

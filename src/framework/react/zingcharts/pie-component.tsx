@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { pieConfig, Series } from '@framework/zingcharts';
+import { pieConfig, Series } from '@dboard/framework/zingcharts';
 import Zingchart from './react-component';
 import { Pie } from '@ant-design/charts';
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Row, Col } from 'antd/lib/grid';
-import ChartContainer from '@app/components/interfaces/chart-container';
-import { PieContainer } from '@framework/react/zingcharts/pie-component';
+import ChartContainer from '@dboard/app/components/interfaces/chart-container';
+import { PieContainer } from '@dboard/framework/react/zingcharts/pie-component';
 import { DeviceTable } from '../components/device-table';
 import Statistic from 'antd/lib/statistic';
 import Card from 'antd/lib/card';
 import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 import Title from 'antd/lib/typography/Title';
-import { StackedareaContainer } from '@framework/react/zingcharts/stackedarea-container';
+import { StackedareaContainer } from '@dboard/framework/react/zingcharts/stackedarea-container';
 
 export const UsCODPage = () => (
     <>

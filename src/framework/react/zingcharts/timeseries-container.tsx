@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import Zingchart from './react-component';
-import { timeseriesConfig, Series } from '@framework/zingcharts';
+import { timeseriesConfig, Series } from '@dboard/framework/zingcharts';
 
 type Props = {
   id: string;

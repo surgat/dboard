@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'antd/lib/grid';
-import { VOLSChartContainer } from '@app/components/vols/components/chart-container';
-import { UtilizationScheduleChart } from '@app/components/utilizationSchedule/components/chart-container';
+import { VOLSChartContainer } from '@dboard/app/components/vols/components/chart-container';
+import { UtilizationScheduleChart } from '@dboard/app/components/utilizationSchedule/components/chart-container';
 import { IncidentTable } from '../components/incident-table';
 import { ClosedIncidentTable } from '../components/closed-incident-table';
 

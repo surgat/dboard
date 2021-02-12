@@ -1,14 +1,14 @@
 import React from 'react';
 import { Row, Col } from 'antd/lib/grid';
-import ChartContainer from '@app/components/interfaces/chart-container';
-import { PieContainer } from '@framework/react/zingcharts/pie-component';
+import ChartContainer from '@dboard/app/components/interfaces/chart-container';
+import { PieContainer } from '@dboard/framework/react/zingcharts/pie-component';
 import { DeviceTable } from '../components/device-table';
-import { GaugeContainer } from '@framework/react/zingcharts/gauge-container';
-import { Series } from '@framework/zingcharts';
-import { TimeseriesContainer } from '@framework/react/zingcharts/timeseries-container';
+import { GaugeContainer } from '@dboard/framework/react/zingcharts/gauge-container';
+import { Series } from '@dboard/framework/zingcharts';
+import { TimeseriesContainer } from '@dboard/framework/react/zingcharts/timeseries-container';
 import Title from 'antd/lib/typography/Title';
-import { IncidentTable } from '@app/components/incident-table';
-import { ClosedIncidentTable } from '@app/components/closed-incident-table';
+import { IncidentTable } from '@dboard/app/components/incident-table';
+import { ClosedIncidentTable } from '@dboard/app/components/closed-incident-table';
 
 export const ActivePage = () => (
     <>

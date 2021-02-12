@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import { StackedareaContainer } from '@framework/react/zingcharts/stackedarea-container'
-import { Series } from '@framework/zingcharts';
+import { StackedareaContainer } from '@dboard/framework/react/zingcharts/stackedarea-container'
+import { Series } from '@dboard/framework/zingcharts';
 
 interface ChartContainer {
   legacyAllInterfaceCountList: number[];
