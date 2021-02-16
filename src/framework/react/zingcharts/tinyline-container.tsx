@@ -33,40 +33,40 @@ export const TinyLineContainer: React.FC = () => {
         data: data,
         smooth: true,
         tooltip: false,
-        annotations: [
-            {
-                type: 'line',
-                start: ['min', 'mean'],
-                end: ['max', 'mean'],
-                text: {
-                    content: '',
-                    offsetY: -2,
-                    style: {
-                        textAlign: 'left',
-                        fontSize: 10,
-                        fill: 'red',
-                        textBaseline: 'bottom',
-                    },
-                },
-                style: { stroke: 'red' },
-            },
-            {
-                type: 'line',
-                start: ['min', 800],
-                end: ['max', 800],
-                text: {
-                    content: '',
-                    offsetY: -2,
-                    style: {
-                        textAlign: 'left',
-                        fontSize: 10,
-                        fill: 'green',
-                        textBaseline: 'bottom',
-                    },
-                },
-                style: { stroke: 'green' },
-            },
-        ],
+        // annotations: [
+        //     {
+        //         type: 'line',
+        //         start: ['min', 'mean'],
+        //         end: ['max', 'mean'],
+        //         text: {
+        //             content: '',
+        //             offsetY: -2,
+        //             style: {
+        //                 textAlign: 'left',
+        //                 fontSize: 10,
+        //                 fill: 'red',
+        //                 textBaseline: 'bottom',
+        //             },
+        //         },
+        //         style: { stroke: 'red' },
+        //     },
+        //     {
+        //         type: 'line',
+        //         start: ['min', 800],
+        //         end: ['max', 800],
+        //         text: {
+        //             content: '',
+        //             offsetY: -2,
+        //             style: {
+        //                 textAlign: 'left',
+        //                 fontSize: 10,
+        //                 fill: 'green',
+        //                 textBaseline: 'bottom',
+        //             },
+        //         },
+        //         style: { stroke: 'green' },
+        //     },
+        // ],
     };
     // @ts-ignore
     return <TinyLine {...config} />;

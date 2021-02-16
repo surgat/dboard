@@ -13,7 +13,8 @@ export const UsCODPage = () => (
     <>
         <Row justify="space-around" align="middle">
             <Col xs={24} lg={16}>
-                <StackedareaContainer data={{
+                <Title level={4}>Клиентские интерфейсы</Title>
+                <StackedareaContainer height={350} data={{
                     xValues: ["2020.10", "2020.11", "2020.12", "2021.01"],
                     series: [
                         { text: "legacy up", values: [10, 8, 2, 0], color: "red" },
@@ -88,19 +89,15 @@ export const UsCODPage = () => (
                     </Row>
                 </Card>
             </Col>
-            <Col xs={24} lg={8}>
+            <Col xs={24} lg={6}>
                 <DeviceTable data={[
-                    { role: 'SS', prom: 88, stock: 117 },
-                    { role: 'BG', prom: 12, stock: 169 },
-                    { role: 'BL', prom: 95, stock: 880 },
-                    { role: 'AG', prom: 617, stock: 1223 },
-                    { role: 'AC', prom: 4536, stock: 1501 },
-                    // { role: 'Всех', prom: 173767, stock: 95147 },
+                    { role: 'Ядро', prom: 856, stock: 880 },
+                    { role: 'Клиентские', prom: 4536, stock: 1501 },
                 ]} />
             </Col>
-            <Col xs={24} lg={8}>
+            <Col xs={24} lg={10}>
                 <Row gutter={6}>
-                    <Col span={12}>
+                    <Col span={8}>
                         <Title level={4}>Проблемы</Title>
                         <Card size="small">
                             <Statistic
@@ -112,7 +109,7 @@ export const UsCODPage = () => (
                                 value={80}
                             />
                             <Statistic
-                                title="KPI"
+                                title="КПЭ"
                                 value={88.25}
                                 precision={2}
                                 valueStyle={{ color: '#3f8600' }}
@@ -120,8 +117,8 @@ export const UsCODPage = () => (
                             />
                         </Card>
                     </Col>
-                    <Col span={12}>
-                        <Title level={4}>Риски</Title>
+                    <Col span={8}>
+                        <Title level={4}>Проблемы</Title>
                         <Card size="small">
                             <Statistic
                                 title="Пришло"
@@ -132,7 +129,34 @@ export const UsCODPage = () => (
                                 value={80}
                             />
                             <Statistic
-                                title="KPI"
+                                title="КПЭ"
+                                value={88.25}
+                                precision={2}
+                                valueStyle={{ color: '#3f8600' }}
+                                suffix="%"
+                            />
+                        </Card>
+                    </Col>
+                    <Col span={8}>
+                        <Title level={4}>Уязвимости</Title>
+                        <Card size="small">
+                            <Statistic
+                                title="Пришло"
+                                value={96}
+                            />
+                            <Statistic
+                                title="Решено"
+                                value={80}
+                            />
+                            <Statistic
+                                title="КПЭ ДКБ"
+                                value={46.25}
+                                precision={2}
+                                valueStyle={{ color: 'rgb(164, 164, 0)' }}
+                                suffix="%"
+                            />
+                            <Statistic
+                                title="КПЭ ДТН "
                                 value={46.25}
                                 precision={2}
                                 valueStyle={{ color: 'rgb(164, 164, 0)' }}

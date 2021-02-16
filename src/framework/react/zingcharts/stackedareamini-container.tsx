@@ -9,15 +9,15 @@ interface StackedareaData {
 }
 
 type Props = {
-  height?: number;
   data: StackedareaData;
 }
 
-export const StackedareaContainer: FunctionComponent<Props> = ({ data, height }) => {
-
+export const StackedareaminiContainer: FunctionComponent<Props> = ({ data }) => {
   let charData = [] as any;
+  let colors = [] as string[];
 
   data.series.forEach((serie) => {
+    serie.color && colors.push(serie.color);
     serie.values.forEach((v, i) => {
       charData.push({
         date: data.xValues[i],
@@ -25,28 +25,40 @@ export const StackedareaContainer: FunctionComponent<Props> = ({ data, height })
         name: serie.text
       });
     })
-  })
+  });
 
   let config = {
+    height: 80,
     data: charData,
     xField: 'date',
     yField: 'value',
     seriesField: 'name',
+    legend: false,
     point: {
       size: 5,
       shape: 'diamond',
     },
-    slider: {
-      start: 0,
-      end: 1,
+    xAxis: {
+      label: null,
     },
+    yAxis: {
+      label: null,
+      grid: null
+    },
+    smooth: true
   } as any;
 
-  if (height) {
-    config.height = height;
+  if (colors.length > 0) {
+    config.theme = {
+      styleSheet: {
+        brandColor: colors[0],
+        paletteQualitative10: colors,
+        paletteQualitative20: colors
+      }
+    }
   }
 
-
+  // @ts-ignore
   return <Area {...config} />;
 
   // let chartData = {

@@ -14,6 +14,7 @@ interface StackedareaData {
 }
 
 type Props = {
+  height?: number;
   data: StackedareaData;
 }
 
@@ -42,7 +43,7 @@ const pieConfig = {
   },
 };
 
-export const Stackedarea2Container: FunctionComponent<Props> = ({ data }) => {
+export const Stackedarea2Container: FunctionComponent<Props> = ({ data, height }) => {
 
   let charData = [] as any;
 
@@ -112,7 +113,9 @@ export const Stackedarea2Container: FunctionComponent<Props> = ({ data }) => {
     },
   };
 
-
+  if (height) {
+    config.height = height;
+  }
 
   // @ts-ignore
   return <>

@@ -5,8 +5,8 @@ export const TinyColumnContainer: React.FC = () => {
     var data = [274, 337, 81, 497, 666, 219, 269];
     var config = {
         height: 64,
-        // width: 240,
-        autoFit: false,
+        // width: "auto",
+        // autoFit: false,
         data: data,
         tooltip: false,
         annotations: [
