@@ -1,5 +1,4 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
-// import Zingchart from './react-component';
 import { Series } from '@dboard/framework/zingcharts';
 import { Area } from '@ant-design/charts';
 
@@ -10,10 +9,11 @@ interface StackedareaData {
 
 type Props = {
   height?: number;
-  data: StackedareaData;
+  data: StackedareaData
+  slider?: any;
 }
 
-export const StackedareaContainer: FunctionComponent<Props> = ({ data, height }) => {
+export const StackedareaContainer: FunctionComponent<Props> = ({ data, height, slider }) => {
 
   let charData = [] as any;
 
@@ -35,12 +35,17 @@ export const StackedareaContainer: FunctionComponent<Props> = ({ data, height })
     point: {
       size: 5,
       shape: 'diamond',
-    },
-    slider: {
+    }
+  } as any;
+
+  if (slider === undefined || slider === null) {
+    config.slider = {
       start: 0,
       end: 1,
-    },
-  } as any;
+    };
+  } else if (slider !== false) {
+    config.slider = slider;
+  }
 
   if (height) {
     config.height = height;
@@ -48,17 +53,4 @@ export const StackedareaContainer: FunctionComponent<Props> = ({ data, height })
 
 
   return <Area {...config} />;
-
-  // let chartData = {
-  //   ...stackedareaConfig(),
-  //   series: series
-  // };
-
-  // chartData.title.text = name;
-
-  // return (
-  //   <>
-  //     <Zingchart id={id} data={chartData} />
-  //   </>
-  // );
 }

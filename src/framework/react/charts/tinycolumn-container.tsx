@@ -2,7 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { TinyColumn } from '@ant-design/charts';
 
 export const TinyColumnContainer: React.FC = () => {
-    var data = [274, 337, 81, 497, 666, 219, 269];
+    var data = [
+        274, 337, 81,
+        497, 666, 219,
+        497, 666, 219,
+        497, 666, 219
+    ];
     var config = {
         height: 64,
         // width: "auto",

@@ -1,5 +1,4 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
-// import Zingchart from './react-component';
 import { Series } from '@dboard/framework/zingcharts';
 import { Area } from '@ant-design/charts';
 
@@ -60,17 +59,4 @@ export const StackedareaminiContainer: FunctionComponent<Props> = ({ data }) => 
 
   // @ts-ignore
   return <Area {...config} />;
-
-  // let chartData = {
-  //   ...stackedareaConfig(),
-  //   series: series
-  // };
-
-  // chartData.title.text = name;
-
-  // return (
-  //   <>
-  //     <Zingchart id={id} data={chartData} />
-  //   </>
-  // );
 }

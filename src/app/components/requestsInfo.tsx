@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Divider from 'antd/lib/divider';
-import { BulletContainer } from '@dboard/framework/react/zingcharts/bullet-container';
-import { TinyColumnContainer } from '@dboard/framework/react/zingcharts/tinycolumn-container';
+import { BulletContainer } from '@dboard/framework/react/charts/bullet-container';
+import { TinyColumnContainer } from '@dboard/framework/react/charts/tinycolumn-container';
 import Card from 'antd/lib/card';
-import { StackedareaContainer } from '@dboard/framework/react/zingcharts/stackedarea-container';
-import { StackedareaminiContainer } from '@dboard/framework/react/zingcharts/stackedareamini-container';
+import { StackedareaContainer } from '@dboard/framework/react/charts/stackedarea-container';
+import { StackedareaminiContainer } from '@dboard/framework/react/charts/stackedareamini-container';
 
 type Props = {
     name: string

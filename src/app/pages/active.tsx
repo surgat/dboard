@@ -1,47 +1,116 @@
 import React from 'react';
 import { Row, Col } from 'antd/lib/grid';
-// import ChartContainer from '@dboard/app/components/interfaces/chart-container';
-import { PieContainer } from '@dboard/framework/react/zingcharts/pie-component';
-import { DeviceTable } from '../components/device-table';
-import { GaugeContainer } from '@dboard/framework/react/zingcharts/gauge-container';
-import { Series } from '@dboard/framework/zingcharts';
-import { TimeseriesContainer } from '@dboard/framework/react/zingcharts/timeseries-container';
 import Title from 'antd/lib/typography/Title';
 import { IncidentTable } from '@dboard/app/components/incident-table';
 import { ClosedIncidentTable } from '@dboard/app/components/closed-incident-table';
-import Card from 'antd/lib/card';
-import Statistic from 'antd/lib/statistic';
-import { Gauge1Container } from '@dboard/framework/react/zingcharts/gauge1-container';
-import { BulletContainer } from '@dboard/framework/react/zingcharts/bullet-container';
-import { TinyLineContainer } from '@dboard/framework/react/zingcharts/tinyline-container';
-import Space from 'antd/lib/space';
-import Divider from 'antd/lib/divider';
 import { KPI1Info } from '../components/kpi1info'
 import { RequestsInfo } from '../components/requestsInfo'
 
-import { Stackedarea2Container } from '@dboard/framework/react/zingcharts/stackedarea2-container';
+import { Stackedarea2Container } from '@dboard/framework/react/charts/stackedarea2-container';
+import { MinibarContainer } from '@dboard/framework/react/charts/minibar-component';
+import { BidirectionalBarContainer } from '@dboard/framework/react/charts/BidirectionalBar-container';
+import { DualAxesContainer } from '@dboard/framework/react/charts/DualAxes-component';
+
+
 
 export const ActivePage = () => (<>
-    {/* <Title level={3}>KPI по услугам</Title> */}
-    <Row gutter={[16, 16]} style={{ minHeight: '100px' }}>
-        <Col xs={12} sm={8} lg={4} >
+    <Title level={3}>Объём инцидентов</Title>
+    <Row>
+        <Col xs={24} lg={18}>
+            <DualAxesContainer data={{
+                xValues: ['2020.08', '2020.09', '2020.10', '2020.11', '2020.12'],
+                series: [
+                    { text: "auto", values: [40, 41.5, 41, 42, 20], color: "green" },
+                    { text: "manual", values: [60, 58.5, 59, 58, 80], color: "gray" }
+                ],
+                lineValue: [2000, 2000, 1800, 1100, 1500]
+            }} />
+            {/* <BidirectionalBarContainer data={[
+                { 'label': '2020.08', valuePositive: 2000 },
+                { 'label': '2020.09', valuePositive: 2000 },
+                { 'label': '2020.10', valuePositive: 2000 },
+                { 'label': '2020.11', valuePositive: 1920, valueNegative: 1100 },
+                { 'label': '2020.12', valuePositive: 2100, valueNegative: 1500 },
+                { 'label': '2021.01', valuePositive: 1800, valueNegative: 1000 },
+            ]} meta={{
+                valuePositive: { alias: 'Открыто' },
+                valueNegative: { alias: 'Закрыто' },
+            }} /> */}
+            {/* <TimeseriesContainer height={300} data={[
+                { 'date': '2020.08', value: 2000 },
+                { 'date': '2020.09', value: 2000 },
+                { 'date': '2020.10', value: 2000 },
+                { 'date': '2020.11', value: 1920 },
+                { 'date': '2020.12', value: 2100 },
+                { 'date': '2021.01', value: 1800 },
+            ]} /> */}
+        </Col>
+        <Col xs={24} lg={6}>
+            <Title level={5}>Без влияния</Title>
+            <div>
+                <MinibarContainer height={100} data={[
+                    {
+                        label: 'За неделю',
+                        value: 400,
+                    },
+                    {
+                        label: 'За месяц',
+                        value: 2260,
+                    },
+                ]} />
+            </div>
+            <Title level={5}>С влиянием</Title>
+            <div>
+                <MinibarContainer height={100} data={[
+                    {
+                        label: 'За неделю',
+                        value: 1,
+                    },
+                    {
+                        label: 'За месяц',
+                        value: 20,
+                    },
+                ]} />
+            </div>
+
+            {/* {
+                    label: 'Без влияния',
+                    type: 'За неделю',
+                    value: 1,
+                },
+                {
+                    label: 'Без влияния',
+                    type: 'За месяц',
+                    value: 20,
+                } */}
+            {/* <StackedareaContainer height={300} slider={false} data={{
+                xValues: ["2020.10", "2020.11", "2020.12", "2021.01"],
+                series: [
+                    { text: "Притер", values: [2000, 1920, 2100, 1800] }
+                ]
+            }} /> */}
+        </Col>
+    </Row>
+    <Title level={3}>По услугам</Title>
+    <Row gutter={[8, 8]} style={{ minHeight: '100px' }}>
+        <Col xs={12} sm={8} xl={4} >
             <KPI1Info name="Услуга1" />
             {/* <Gauge1Container name={"Услуга1"} /> */}
         </Col>
-        <Col xs={12} sm={8} lg={4} >
+        <Col xs={12} sm={8} xl={4} >
             <KPI1Info name="Услуга2" />
         </Col>
-        <Col xs={12} sm={8} lg={4} >
+        <Col xs={12} sm={8} xl={4} >
             <KPI1Info name="Услуга3" />
         </Col>
-        <Col xs={12} sm={8} lg={4} >
+        <Col xs={12} sm={8} xl={4} >
             <KPI1Info name="Услуга4" />
         </Col>
-        <Col xs={12} sm={8} lg={4} >
+        <Col xs={12} sm={8} xl={4} >
             <KPI1Info name="Услуга5" />
         </Col>
-        <Col xs={12} sm={8} lg={4}>
-            <KPI1Info name="Услуга6" />
+        <Col xs={12} sm={8} xl={4}>
+            <KPI1Info name="Остальные" />
         </Col>
     </Row>
 

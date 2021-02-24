@@ -29,10 +29,10 @@ export const TinyLineContainer: React.FC = () => {
     var config = {
         height: 60,
         // width: 300,
-        autoFit: false,
+        autoFit: true,
         data: data,
         smooth: true,
-        tooltip: false,
+        // tooltip: false,
         // annotations: [
         //     {
         //         type: 'line',

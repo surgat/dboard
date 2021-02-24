@@ -1,12 +1,9 @@
 // @ts-nocheck
 
 import React, { CSSProperties, FunctionComponent, useEffect, useState } from 'react';
-// import Zingchart from './react-component';
 import { Series } from '@dboard/framework/zingcharts';
 import { Area } from '@ant-design/charts';
 import PieChart from '@ant-design/charts/es/pie';
-import { NormalModuleReplacementPlugin } from 'webpack';
-import { property } from 'lodash';
 
 interface StackedareaData {
   xValues: number[] | string[],
@@ -121,17 +118,4 @@ export const Stackedarea2Container: FunctionComponent<Props> = ({ data, height }
   return <>
     <Area {...config} />
   </>;
-
-  // let chartData = {
-  //   ...stackedareaConfig(),
-  //   series: series
-  // };
-
-  // chartData.title.text = name;
-
-  // return (
-  //   <>
-  //     <Zingchart id={id} data={chartData} />
-  //   </>
-  // );
 }

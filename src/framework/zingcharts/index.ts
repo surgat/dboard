@@ -9,8 +9,3 @@ export interface Series {
     //     borderColor?: string
     // }
 }
-
-export { pieConfig } from './pieserie'
-export { timeseriesConfig } from './timeseries'
-export { stackedareaConfig } from './stackedarea'
-export { gaugeConfig } from './gauge'

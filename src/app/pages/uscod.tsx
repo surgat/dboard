@@ -1,13 +1,16 @@
 import React from 'react';
 import { Row, Col } from 'antd/lib/grid';
 // import ChartContainer from '@dboard/app/components/interfaces/chart-container';
-import { PieContainer } from '@dboard/framework/react/zingcharts/pie-component';
+import { PieContainer } from '@dboard/framework/react/charts/pie-component';
 import { DeviceTable } from '../components/device-table';
 import Statistic from 'antd/lib/statistic';
 import Card from 'antd/lib/card';
 import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 import Title from 'antd/lib/typography/Title';
-import { StackedareaContainer } from '@dboard/framework/react/zingcharts/stackedarea-container';
+import { StackedareaContainer } from '@dboard/framework/react/charts/stackedarea-container';
+import { ColumnContainer } from '@dboard/framework/react/charts/column-container';
+import { Problems } from '../components/problems';
+
 
 export const UsCODPage = () => (
     <>
@@ -51,7 +54,7 @@ export const UsCODPage = () => (
         </Row>
         <Row gutter={18}>
             <Col xs={24} lg={8}>
-                <Title level={4}>Статистика</Title>
+                <Title level={4}>Ёмоксть</Title>
                 <Card size="small">
                     <Row>
                         <Col span={12}>
@@ -89,14 +92,28 @@ export const UsCODPage = () => (
                     </Row>
                 </Card>
             </Col>
-            <Col xs={24} lg={6}>
-                <DeviceTable data={[
+            <Col xs={24} lg={10}>
+                <Title level={4}>Количество устройств</Title>
+                <div>
+                    <ColumnContainer height={250} data={{
+                        xValues: ["2020.12", "2021.01"],
+                        series: [
+                            { text: "Ядро", values: [856, 880] },
+                            { text: "Клиентские", values: [4000, 4536] },
+                        ]
+                    }} />
+                </div>
+                {/* <DeviceTable data={[
                     { role: 'Ядро', prom: 856, stock: 880 },
                     { role: 'Клиентские', prom: 4536, stock: 1501 },
-                ]} />
+                ]} /> */}
             </Col>
-            <Col xs={24} lg={10}>
-                <Row gutter={6}>
+            <Col xs={24} lg={6}>
+                <Title level={4}>Проблемы/Риски/Уязвимости</Title>
+                <div>
+                    <Problems />
+                </div>
+                {/* <Row gutter={6}>
                     <Col span={8}>
                         <Title level={4}>Проблемы</Title>
                         <Card size="small">
@@ -118,7 +135,7 @@ export const UsCODPage = () => (
                         </Card>
                     </Col>
                     <Col span={8}>
-                        <Title level={4}>Проблемы</Title>
+                        <Title level={4}>Риски</Title>
                         <Card size="small">
                             <Statistic
                                 title="Пришло"
@@ -156,7 +173,7 @@ export const UsCODPage = () => (
                                 suffix="%"
                             />
                             <Statistic
-                                title="КПЭ ДТН "
+                                title="КПЭ ДТН"
                                 value={46.25}
                                 precision={2}
                                 valueStyle={{ color: 'rgb(164, 164, 0)' }}
@@ -164,7 +181,7 @@ export const UsCODPage = () => (
                             />
                         </Card>
                     </Col>
-                </Row>
+                </Row> */}
             </Col>
         </Row >
     </>

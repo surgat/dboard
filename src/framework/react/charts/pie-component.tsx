@@ -1,6 +1,4 @@
 import React, { FunctionComponent } from 'react';
-import { pieConfig, Series } from '@dboard/framework/zingcharts';
-import Zingchart from './react-component';
 import { Pie } from '@ant-design/charts';
 
 const colors = [
@@ -49,9 +47,4 @@ export const PieContainer: FunctionComponent<Props> = ({ id, name, series }) => 
   };
 
   return <div><Pie {...config} /></div>;
-  // let chartData = { ...pieConfig(), series: series };
-  // // chartData.title.text= name;
-  // return (
-  //   <Zingchart id={id} key={id} data={chartData} />
-  // );
 }
