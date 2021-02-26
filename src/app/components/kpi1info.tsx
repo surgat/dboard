@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Divider from 'antd/lib/divider';
-import { BulletContainer } from '@dboard/framework/react/zingcharts/bullet-container';
-import { TinyColumnContainer } from '@dboard/framework/react/zingcharts/tinycolumn-container';
+import { BulletContainer } from '@dboard/framework/react/charts/bullet-container';
+import { TinyColumnContainer } from '@dboard/framework/react/charts/tinycolumn-container';
 import Card from 'antd/lib/card';
 import Typography from 'antd/lib/typography';
-import { ServiceIncideents } from './serviceIncideents'
 import { ServiceIncideentsTime } from './serviceIncideentsTime'
 import { Col, Row, Statistic } from 'antd';
-import { ColumnContainer } from '@dboard/framework/react/zingcharts/column-container';
-import { RadialBarContainer } from '@dboard/framework/react/zingcharts/radialbar-container';
-import { TinyLineContainer } from '@dboard/framework/react/zingcharts/tinyline-container';
+import { RadialBarContainer } from '@dboard/framework/react/charts/radialbar-container';
+import { TinyLineContainer } from '@dboard/framework/react/charts/tinyline-container';
 import Title from 'antd/lib/typography/Title';
+import { Minibar2Container } from '@dboard/framework/react/charts/minibar2-component';
 
 type Props = {
     name: string
@@ -68,6 +67,39 @@ export const KPI1Info: React.FC<Props> = ({ name }) => {
                         <TinyLineContainer />
                     </div>
                 </Col>
+                <Col span={24}>
+                    <Title level={5}>Топ 3 дефектов</Title>
+                    <div>
+                        <Minibar2Container height={100} data={[
+                            {
+                                label: 'hig',
+                                date: 'Дефект/Сбой оборудования',
+                                value: 1,
+                            },
+                            {
+                                label: 'mid',
+                                date: 'Дефект/Сбой оборудования',
+                                value: 15,
+                            },
+                            {
+                                label: 'hig',
+                                date: 'Дефект/Сбой оборудования',
+                                value: 5,
+                            },
+                            {
+                                label: 'hig',
+                                date: 'Дефект СПО',
+                                value: 5,
+                            },
+                            {
+                                label: 'hig',
+                                date: 'Изменение',
+                                value: 5,
+                            },
+                        ]} />
+                    </div>
+                </Col>
+
             </Row>
         </Card>
     )

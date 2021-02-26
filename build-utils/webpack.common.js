@@ -48,7 +48,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'InventoryDB',
+      title: 'Dashbord',
       template: './src/index.html',
       favicon: './src/favicon.ico'
     }),

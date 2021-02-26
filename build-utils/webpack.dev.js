@@ -14,6 +14,7 @@ module.exports = {
     contentBase: './build',
     compress: false,
     host: '0.0.0.0',
+    port: 8081,
     historyApiFallback: true,
     hot: true,
     // proxy: {

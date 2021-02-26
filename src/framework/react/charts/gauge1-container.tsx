@@ -1,6 +1,4 @@
 import React, { FunctionComponent } from 'react';
-// import Zingchart from './react-component';
-// import { gaugeConfig, Series } from '../../zingcharts';
 import { Gauge } from '@ant-design/charts';
 
 type Props = {

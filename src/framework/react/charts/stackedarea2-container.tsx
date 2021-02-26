@@ -74,7 +74,7 @@ export const Stackedarea2Container: FunctionComponent<Props> = ({ data, height }
     },
     interactions: [{ type: 'brush' }],
     slider: {
-      start: 0,
+      start: 0.4,
       end: 1,
     },
     tooltip: {

@@ -10,20 +10,23 @@ import { Stackedarea2Container } from '@dboard/framework/react/charts/stackedare
 import { MinibarContainer } from '@dboard/framework/react/charts/minibar-component';
 import { BidirectionalBarContainer } from '@dboard/framework/react/charts/BidirectionalBar-container';
 import { DualAxesContainer } from '@dboard/framework/react/charts/DualAxes-component';
+import { Minibar2Container } from '@dboard/framework/react/charts/minibar2-component';
 
 
 
 export const ActivePage = () => (<>
     <Title level={3}>Объём инцидентов</Title>
-    <Row>
+    <Row gutter={[8, 8]}>
         <Col xs={24} lg={18}>
             <DualAxesContainer data={{
                 xValues: ['2020.08', '2020.09', '2020.10', '2020.11', '2020.12'],
                 series: [
-                    { text: "auto", values: [40, 41.5, 41, 42, 20], color: "green" },
-                    { text: "manual", values: [60, 58.5, 59, 58, 80], color: "gray" }
+                    { text: "% ручных", values: [500, 800, 800, 800, 500], color: "gray" },
+                    { text: "% автозаведенных", values: [1500, 1200, 1000, 300, 1000], color: "green" },
                 ],
                 lineValue: [2000, 2000, 1800, 1100, 1500]
+            }} meta={{
+                count: { alias: "Инцидентов" }
             }} />
             {/* <BidirectionalBarContainer data={[
                 { 'label': '2020.08', valuePositive: 2000 },
@@ -48,27 +51,58 @@ export const ActivePage = () => (<>
         <Col xs={24} lg={6}>
             <Title level={5}>Без влияния</Title>
             <div>
-                <MinibarContainer height={100} data={[
+                <Minibar2Container height={100} data={[
                     {
-                        label: 'За неделю',
-                        value: 400,
+                        label: 'low',
+                        date: 'За неделю',
+                        value: 300,
                     },
                     {
-                        label: 'За месяц',
-                        value: 2260,
+                        label: 'mid',
+                        date: 'За неделю',
+                        value: 100,
                     },
-                ]} />
+                    {
+                        label: 'hig',
+                        date: 'За неделю',
+                        value: 50,
+                    },
+                    {
+                        label: 'low',
+                        date: 'За месяц',
+                        value: 1500,
+                    },
+                    {
+                        label: 'mid',
+                        date: 'За месяц',
+                        value: 603,
+                    },
+                    {
+                        label: 'hig',
+                        date: 'За месяц',
+                        value: 120,
+                    },
+                ]} meta={{
+                    hig: { alias: 'Высокие' },
+                }} />
             </div>
             <Title level={5}>С влиянием</Title>
             <div>
-                <MinibarContainer height={100} data={[
+                <Minibar2Container height={100} data={[
                     {
-                        label: 'За неделю',
+                        label: 'hig',
+                        date: 'За неделю',
                         value: 1,
                     },
                     {
-                        label: 'За месяц',
-                        value: 20,
+                        label: 'mid',
+                        date: 'За месяц',
+                        value: 15,
+                    },
+                    {
+                        label: 'hig',
+                        date: 'За месяц',
+                        value: 5,
                     },
                 ]} />
             </div>
