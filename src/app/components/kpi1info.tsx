@@ -18,36 +18,14 @@ type Props = {
 export const KPI1Info: React.FC<Props> = ({ name }) => {
     return (
         <Card size="small" title={name}>
-            <div style={{ textAlign: "center" }}>
+            {/* <div style={{ textAlign: "center" }}>
                 <Typography.Text>KPI</Typography.Text>
             </div>
-            {/* <Divider plain>KPI</Divider> */}
-            {/* <Space direction="vertical"> */}
             <BulletContainer />
             <div style={{ textAlign: "center" }}><Typography.Text>динамика за год</Typography.Text></div>
-            {/* <Divider plain>динамика за год</Divider> */}
             <TinyColumnContainer />
-            {/* </Space> */}
             <Divider plain>Инциденты</Divider>
-            {/* <div>
-                <RadialBarContainer height={100} data={[
-                    // { name: "Дубли", value: 1000 },
-                    { name: "C", value: 20 },
-                    { name: "Без", value: 1400 },
-                    // { name: "Всего", value: 1410 },
-                ]} />
-            </div> */}
-            {/* <div>
-                <ColumnContainer height={250} data={{
-                    xValues: ["2020.12", "2021.01"],
-                    series: [
-                        { text: "C", values: [20, 10] },
-                        { text: "Без", values: [1400, 1500] },
-                    ]
-                }} />
-            </div> */}
-            {/* <Typography.Text>Инциденты</Typography.Text> */}
-            {/* <Statistic title="Общее количество" value={112893} /> */}
+            */}
             <Row gutter={[8, 8]}>
                 <Col span={24} style={{ textAlign: "center" }}>Всего: 1410 / 24% от управления</Col>
                 <Col span={12}>

@@ -11,14 +11,78 @@ import { MinibarContainer } from '@dboard/framework/react/charts/minibar-compone
 import { BidirectionalBarContainer } from '@dboard/framework/react/charts/BidirectionalBar-container';
 import { DualAxesContainer } from '@dboard/framework/react/charts/DualAxes-component';
 import { Minibar2Container } from '@dboard/framework/react/charts/minibar2-component';
-
+import { GroupedColumn } from '@dboard/framework/react/charts/groupedColumn';
 
 
 export const ActivePage = () => (<>
     <Title level={3}>Объём инцидентов</Title>
     <Row gutter={[8, 8]}>
-        <Col xs={24} lg={18}>
-            <DualAxesContainer data={{
+        <Col xs={24} lg={16}>
+            <GroupedColumn height={300} data={{
+                series: [
+                    { text: "новых", group: 'новых высоких' },
+                    { text: "новых", group: 'новых средних' },
+                    { text: "новых", group: 'новых низких' },
+                    { text: "в работе", group: 'в работе высоких' },
+                    { text: "в работе", group: 'в работе средних' },
+                    { text: "в работе", group: 'в работе низких' },
+                    { text: "закрыто", group: 'закрыто высоких' },
+                    { text: "закрыто", group: 'закрыто средних' },
+                    { text: "закрыто", group: 'закрыто низких' },
+                ],
+                data: [
+                    {
+                        xValue: '2020.08',
+                        values: [
+                            1, 20, 30,
+                            1, 20, 30,
+                            -1, -18, -17
+                        ]
+
+                    },
+                    {
+                        xValue: '2020.09',
+                        values: [
+                            0, 20, 250,
+                            1, 15, 50,
+                            0, -25, -100
+                        ]
+                    },
+                    {
+                        xValue: '2020.10',
+                        values: [
+                            0, 20, 250,
+                            1, 15, 50,
+                            0, -25, -100
+                        ]
+                    },
+                    {
+                        xValue: '2020.11',
+                        values: [
+                            1, 20, 250,
+                            1, 15, 50,
+                            0, -25, -100
+                        ]
+                    },
+                    {
+                        xValue: '2020.12',
+                        values: [
+                            0, 20, 250,
+                            0, 15, 50,
+                            -1, -25, -100
+                        ]
+                    },
+                    {
+                        xValue: '2021.01',
+                        values: [
+                            0, 20, 250,
+                            0, 15, 50,
+                            0, -25, -100
+                        ]
+                    }
+                ],
+            }} />
+            {/* <DualAxesContainer data={{
                 xValues: ['2020.08', '2020.09', '2020.10', '2020.11', '2020.12'],
                 series: [
                     { text: "% ручных", values: [500, 800, 800, 800, 500], color: "gray" },
@@ -27,7 +91,7 @@ export const ActivePage = () => (<>
                 lineValue: [2000, 2000, 1800, 1100, 1500]
             }} meta={{
                 count: { alias: "Инцидентов" }
-            }} />
+            }} /> */}
             {/* <BidirectionalBarContainer data={[
                 { 'label': '2020.08', valuePositive: 2000 },
                 { 'label': '2020.09', valuePositive: 2000 },
@@ -48,81 +112,55 @@ export const ActivePage = () => (<>
                 { 'date': '2021.01', value: 1800 },
             ]} /> */}
         </Col>
-        <Col xs={24} lg={6}>
-            <Title level={5}>Без влияния</Title>
-            <div>
-                <Minibar2Container height={100} data={[
-                    {
-                        label: 'low',
-                        date: 'За неделю',
-                        value: 300,
-                    },
-                    {
-                        label: 'mid',
-                        date: 'За неделю',
-                        value: 100,
-                    },
-                    {
-                        label: 'hig',
-                        date: 'За неделю',
-                        value: 50,
-                    },
-                    {
-                        label: 'low',
-                        date: 'За месяц',
-                        value: 1500,
-                    },
-                    {
-                        label: 'mid',
-                        date: 'За месяц',
-                        value: 603,
-                    },
-                    {
-                        label: 'hig',
-                        date: 'За месяц',
-                        value: 120,
-                    },
-                ]} meta={{
-                    hig: { alias: 'Высокие' },
-                }} />
-            </div>
-            <Title level={5}>С влиянием</Title>
-            <div>
-                <Minibar2Container height={100} data={[
-                    {
-                        label: 'hig',
-                        date: 'За неделю',
-                        value: 1,
-                    },
-                    {
-                        label: 'mid',
-                        date: 'За месяц',
-                        value: 15,
-                    },
-                    {
-                        label: 'hig',
-                        date: 'За месяц',
-                        value: 5,
-                    },
-                ]} />
-            </div>
-
-            {/* {
-                    label: 'Без влияния',
-                    type: 'За неделю',
-                    value: 1,
-                },
-                {
-                    label: 'Без влияния',
-                    type: 'За месяц',
-                    value: 20,
-                } */}
-            {/* <StackedareaContainer height={300} slider={false} data={{
-                xValues: ["2020.10", "2020.11", "2020.12", "2021.01"],
+        <Col xs={24} lg={8}>
+            <GroupedColumn data={{
                 series: [
-                    { text: "Притер", values: [2000, 1920, 2100, 1800] }
-                ]
-            }} /> */}
+                    { text: "новых", group: 'новых высоких' },
+                    { text: "новых", group: 'новых средних' },
+                    { text: "новых", group: 'новых низких' },
+                    { text: "в работе", group: 'в работе высоких' },
+                    { text: "в работе", group: 'в работе средних' },
+                    { text: "в работе", group: 'в работе низких' },
+                    { text: "закрыто", group: 'закрыто высоких' },
+                    { text: "закрыто", group: 'закрыто средних' },
+                    { text: "закрыто", group: 'закрыто низких' },
+                ],
+                data: [
+                    {
+                        xValue: '1 неделя',
+                        values: [
+                            1, 5, 7,
+                            1, 7, 9,
+                            -1, -4, -3
+                        ]
+
+                    },
+                    {
+                        xValue: '2 неделя',
+                        values: [
+                            0, 20, 25,
+                            1, 15, 10,
+                            0, -25, -10
+                        ]
+                    },
+                    {
+                        xValue: '3 неделя',
+                        values: [
+                            0, 20, 25,
+                            1, 15, 5,
+                            0, -25, -10
+                        ]
+                    },
+                    {
+                        xValue: '4 неделя',
+                        values: [
+                            1, 20, 25,
+                            1, 15, 5,
+                            0, -25, -10
+                        ]
+                    }
+                ],
+            }} />
         </Col>
     </Row>
     <Title level={3}>По услугам</Title>
