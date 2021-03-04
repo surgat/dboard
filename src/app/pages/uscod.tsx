@@ -10,6 +10,9 @@ import Title from 'antd/lib/typography/Title';
 import { StackedareaContainer } from '@dboard/framework/react/charts/stackedarea-container';
 import { ColumnContainer } from '@dboard/framework/react/charts/column-container';
 import { Problems } from '../components/problems';
+import { GroupedColumn } from '@dboard/framework/react/charts/groupedColumn';
+import { BidirectionalBarContainer } from '@dboard/framework/react/charts/BidirectionalBar-container';
+import { BidirectionalBar2Container } from '@dboard/framework/react/charts/BidirectionalBar2-container';
 
 
 export const UsCODPage = () => (
@@ -95,13 +98,66 @@ export const UsCODPage = () => (
             <Col xs={24} lg={10}>
                 <Title level={4}>Количество устройств</Title>
                 <div>
-                    <ColumnContainer height={250} data={{
+                    <GroupedColumn height={300} data={{
+                        series: [
+                            { text: "ядро", group: 'ядро ПРОМ' },
+                            { text: "ядро", group: 'ядро Склад' },
+                            { text: "клиентские", group: 'клиентские ПРОМ' },
+                            { text: "клиентские", group: 'клиентские Склад' },
+                        ],
+                        data: [
+                            {
+                                xValue: '2020.08',
+                                values: [
+                                    856, 400,
+                                    4000, 6000
+                                ]
+                            },
+                            {
+                                xValue: '2020.09',
+                                values: [
+                                    856, 400,
+                                    4000, 6000
+                                ]
+                            },
+                            {
+                                xValue: '2020.10',
+                                values: [
+                                    856, 400,
+                                    4000, 6000
+                                ]
+                            },
+                            {
+                                xValue: '2020.11',
+                                values: [
+                                    856, 400,
+                                    4000, 6000
+                                ]
+                            },
+                            {
+                                xValue: '2020.12',
+                                values: [
+                                    856, 400,
+                                    4000, 6000
+                                ]
+                            },
+                            {
+                                xValue: '2021.01',
+                                values: [
+                                    856, 400,
+                                    4000, 6000
+                                ]
+                            }
+                        ],
+                    }} />
+
+                    {/* <ColumnContainer height={250} data={{
                         xValues: ["2020.12", "2021.01"],
                         series: [
                             { text: "Ядро", values: [856, 880] },
                             { text: "Клиентские", values: [4000, 4536] },
                         ]
-                    }} />
+                    }} /> */}
                 </div>
                 {/* <DeviceTable data={[
                     { role: 'Ядро', prom: 856, stock: 880 },

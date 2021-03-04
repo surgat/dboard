@@ -17,8 +17,8 @@ import { GroupedColumn } from '@dboard/framework/react/charts/groupedColumn';
 export const ActivePage = () => (<>
     <Title level={3}>Объём инцидентов</Title>
     <Row gutter={[8, 8]}>
-        <Col xs={24} lg={16}>
-            <GroupedColumn height={300} data={{
+        <Col xs={24} lg={18}>
+            <GroupedColumn data={{
                 series: [
                     { text: "новых", group: 'новых высоких' },
                     { text: "новых", group: 'новых средних' },
@@ -112,7 +112,7 @@ export const ActivePage = () => (<>
                 { 'date': '2021.01', value: 1800 },
             ]} /> */}
         </Col>
-        <Col xs={24} lg={8}>
+        <Col xs={24} lg={6}>
             <GroupedColumn data={{
                 series: [
                     { text: "новых", group: 'новых высоких' },
@@ -127,39 +127,133 @@ export const ActivePage = () => (<>
                 ],
                 data: [
                     {
-                        xValue: '1 неделя',
+                        xValue: '2020.08',
                         values: [
-                            1, 5, 7,
-                            1, 7, 9,
-                            -1, -4, -3
+                            1, 20, 30,
+                            1, 20, 30,
+                            -1, -18, -17
+                        ]
+
+                    },
+                    {
+                        xValue: '2020.09',
+                        values: [
+                            0, 20, 250,
+                            1, 15, 50,
+                            0, -25, -100
                         ]
                     },
                     {
-                        xValue: '2 неделя',
+                        xValue: '2020.10',
                         values: [
-                            0, 20, 25,
-                            1, 15, 10,
-                            0, -25, -10
+                            0, 20, 250,
+                            1, 15, 50,
+                            0, -25, -100
                         ]
                     },
                     {
-                        xValue: '3 неделя',
+                        xValue: '2020.11',
                         values: [
-                            0, 20, 25,
-                            1, 15, 5,
-                            0, -25, -10
+                            1, 20, 250,
+                            1, 15, 50,
+                            0, -25, -100
                         ]
                     },
                     {
-                        xValue: '4 неделя',
+                        xValue: '2020.12',
                         values: [
-                            1, 20, 25,
-                            1, 15, 5,
-                            0, -25, -10
+                            0, 20, 250,
+                            0, 15, 50,
+                            -1, -25, -100
+                        ]
+                    },
+                    {
+                        xValue: '2021.01',
+                        values: [
+                            0, 20, 250,
+                            0, 15, 50,
+                            0, -25, -100
                         ]
                     }
                 ],
             }} />
+        </Col>
+
+        <Col xs={24} lg={6}>
+            <Title level={5}>Без влияния</Title>
+            <div>
+                <Minibar2Container height={100} data={[
+                    {
+                        label: 'low',
+                        date: 'За неделю',
+                        value: 300,
+                    },
+                    {
+                        label: 'mid',
+                        date: 'За неделю',
+                        value: 100,
+                    },
+                    {
+                        label: 'hig',
+                        date: 'За неделю',
+                        value: 50,
+                    },
+                    {
+                        label: 'low',
+                        date: 'За месяц',
+                        value: 1500,
+                    },
+                    {
+                        label: 'mid',
+                        date: 'За месяц',
+                        value: 603,
+                    },
+                    {
+                        label: 'hig',
+                        date: 'За месяц',
+                        value: 120,
+                    },
+                ]} meta={{
+                    hig: { alias: 'Высокие' },
+                }} />
+            </div>
+            <Title level={5}>С влиянием</Title>
+            <div>
+                <Minibar2Container height={100} data={[
+                    {
+                        label: 'hig',
+                        date: 'За неделю',
+                        value: 1,
+                    },
+                    {
+                        label: 'mid',
+                        date: 'За месяц',
+                        value: 15,
+                    },
+                    {
+                        label: 'hig',
+                        date: 'За месяц',
+                        value: 5,
+                    },
+                ]} />
+            </div>
+
+            {/* {
+                    label: 'Без влияния',
+                    type: 'За неделю',
+                    value: 1,
+                },
+                {
+                    label: 'Без влияния',
+                    type: 'За месяц',
+                    value: 20,
+                } */}
+            {/* <StackedareaContainer height={300} slider={false} data={{
+                xValues: ["2020.10", "2020.11", "2020.12", "2021.01"],
+                series: [
+                    { text: "Притер", values: [2000, 1920, 2100, 1800] }
+                ]
+            }} /> */}
         </Col>
     </Row>
     <Title level={3}>По услугам</Title>
