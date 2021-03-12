@@ -24,16 +24,21 @@ interface StackedareaData {
 type Props = {
   height?: number;
   data: StackedareaData;
+  legend?: any;
 }
 
-export const GroupedColumn: FunctionComponent<Props> = ({ data, height }) => {
+export const GroupedColumn: FunctionComponent<Props> = ({ data, height, legend }) => {
 
   let charData = [] as any;
 
+  // console.log(data)
   let serie: Series;
   data.data.forEach((el) => {
     el.values.forEach((v, i) => {
       serie = data.series[i];
+      if (!serie) {
+        return;
+      }
       charData.push({
         date: el.xValue,
         value: v,
@@ -71,6 +76,10 @@ export const GroupedColumn: FunctionComponent<Props> = ({ data, height }) => {
     //   ],
     // },
   } as any;
+
+  if (legend !== undefined) {
+    config.legend = legend
+  }
 
   if (height) {
     config.height = height;

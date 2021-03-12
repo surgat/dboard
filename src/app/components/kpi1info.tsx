@@ -10,6 +10,8 @@ import { RadialBarContainer } from '@dboard/framework/react/charts/radialbar-con
 import { TinyLineContainer } from '@dboard/framework/react/charts/tinyline-container';
 import Title from 'antd/lib/typography/Title';
 import { Minibar2Container } from '@dboard/framework/react/charts/minibar2-component';
+import { ColumnContainer } from '@dboard/framework/react/charts/column-container';
+import { Column2Container } from '@dboard/framework/react/charts/column2-container';
 
 type Props = {
     name: string
@@ -28,16 +30,28 @@ export const KPI1Info: React.FC<Props> = ({ name }) => {
             */}
             <Row gutter={[8, 8]}>
                 <Col span={24} style={{ textAlign: "center" }}>Всего: 1410 / 24% от управления</Col>
-                <Col span={12}>
-                    <RadialBarContainer height={150} data={[
-                        { name: "C", value: 20, color: 'red' },
-                        { name: "Без", value: 400, color: 'green' },
+                <Col span={24}>
+                    <Column2Container data={[
+                        {
+                            type: 'ВПИ',
+                            sales: 1,
+                        },
+                        {
+                            type: 'НПИ',
+                            sales: 38,
+                        },
+                        {
+                            type: 'В КПЭ',
+                            sales: 10,
+                        },
+                    ]} height={150} />
+                    {/* <RadialBarContainer height={150} data={[
+
+                        // { name: "C", value: 20, color: 'red' },
+                        // { name: "Без", value: 400, color: 'green' },
                         // { name: "Дубли", value: 1000, color: '#5793ff' },
                         // { name: "Всего", value: 1410 },
-                    ]} />
-                </Col>
-                <Col span={12}>
-                    <ServiceIncideentsTime />
+                    ]} /> */}
                 </Col>
                 <Col span={24}>
                     <Title level={5}>% заведённых автоматом за год</Title>
@@ -46,31 +60,31 @@ export const KPI1Info: React.FC<Props> = ({ name }) => {
                     </div>
                 </Col>
                 <Col span={24}>
-                    <Title level={5}>Топ 3 дефектов</Title>
+                    <Title level={5}>Топ 3 причин инцидентов</Title>
                     <div>
-                        <Minibar2Container height={100} data={[
+                        <Minibar2Container height={150} data={[
                             {
-                                label: 'hig',
+                                label: 'ВПИ',
                                 date: 'Дефект/Сбой оборудования',
                                 value: 1,
                             },
                             {
-                                label: 'mid',
+                                label: 'НПИ',
                                 date: 'Дефект/Сбой оборудования',
                                 value: 15,
                             },
                             {
-                                label: 'hig',
+                                label: 'ВПИ',
                                 date: 'Дефект/Сбой оборудования',
                                 value: 5,
                             },
                             {
-                                label: 'hig',
+                                label: 'ВПИ',
                                 date: 'Дефект СПО',
                                 value: 5,
                             },
                             {
-                                label: 'hig',
+                                label: 'ВПИ',
                                 date: 'Изменение',
                                 value: 5,
                             },
@@ -79,6 +93,6 @@ export const KPI1Info: React.FC<Props> = ({ name }) => {
                 </Col>
 
             </Row>
-        </Card>
+        </Card >
     )
 }

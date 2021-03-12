@@ -18,7 +18,7 @@ export const ActivePage = () => (<>
     <Title level={3}>Объём инцидентов</Title>
     <Row gutter={[8, 8]}>
         <Col xs={24} lg={16}>
-            <GroupedColumn height={300} data={{
+            <GroupedColumn legend={false} height={300} data={{
                 series: [
                     { text: "новых", group: 'новых ВПИ' },
                     { text: "новых", group: 'новых НПИ' },
@@ -26,6 +26,7 @@ export const ActivePage = () => (<>
                     { text: "в работе", group: 'в работе НПИ' },
                     { text: "закрыто", group: 'закрыто ВПИ' },
                     { text: "закрыто", group: 'закрыто НПИ' },
+                    { text: 'КПЭ', group: 'попало в КПЭ' },
                 ],
                 data: [
                     {
@@ -33,16 +34,17 @@ export const ActivePage = () => (<>
                         values: [
                             1, 50,
                             1, 70,
-                            -1, 30
+                            -1, -30,
+                            5
                         ]
-
                     },
                     {
                         xValue: '2020.09',
                         values: [
                             0, 270,
                             1, 65,
-                            0, -125
+                            0, -125,
+                            6
                         ]
                     },
                     {
@@ -50,7 +52,8 @@ export const ActivePage = () => (<>
                         values: [
                             0, 250,
                             1, 65,
-                            0, -65
+                            0, -65,
+                            10
                         ]
                     },
                     {
@@ -58,7 +61,8 @@ export const ActivePage = () => (<>
                         values: [
                             3, 200,
                             1, 70,
-                            -1, -80
+                            -1, -80,
+                            6
                         ]
                     },
                     {
@@ -66,7 +70,8 @@ export const ActivePage = () => (<>
                         values: [
                             1, 150,
                             1, 70,
-                            -3, -80
+                            -3, -80,
+                            3
                         ]
                     },
                     {
@@ -74,7 +79,8 @@ export const ActivePage = () => (<>
                         values: [
                             2, 100,
                             1, 70,
-                            -2, -80
+                            -2, -80,
+                            0
                         ]
                     }
                 ],
@@ -89,6 +95,7 @@ export const ActivePage = () => (<>
                     { text: "в работе", group: 'в работе НПИ' },
                     { text: "закрыто", group: 'закрыто ВПИ' },
                     { text: "закрыто", group: 'закрыто НПИ' },
+                    { text: 'КПЭ', group: 'попало в КПЭ' },
                 ],
                 data: [
                     {
@@ -97,6 +104,7 @@ export const ActivePage = () => (<>
                             1, 5,
                             1, 7,
                             -1, -4,
+                            1
                         ]
                     },
                     {
@@ -105,6 +113,7 @@ export const ActivePage = () => (<>
                             0, 20,
                             1, 15,
                             0, -25,
+                            5
                         ]
                     },
                     {
@@ -113,6 +122,7 @@ export const ActivePage = () => (<>
                             0, 20,
                             1, 15,
                             0, -25,
+                            0
                         ]
                     },
                     {
@@ -121,13 +131,11 @@ export const ActivePage = () => (<>
                             1, 20,
                             1, 15,
                             0, -25,
+                            1
                         ]
                     }
                 ],
             }} />
-        </Col>
-        <Col xs={24} lg={16}>
-
         </Col>
     </Row>
     <Title level={3}>По услугам</Title>
